@@ -13,6 +13,8 @@ Author built some simple Go backend services in the past, and tried RabbitMQ, Re
 
 ## What You (AI Assistant) Need to Do
 
+**MOST IMPORTANT: I DONT NEED YOU TO WRITE ANY CODE, I WILL WRITE THEM ALL BY HAND, ALL YOU NEED TO DO IS TO GUIDE ME!**
+
 Help the author to build the backend abilities strongly, don't concentrate on Java and Spring Boot syntax, these are easy things to the author. He just need some foundamental guidance on those in at the beginning for several days. 
 
 - You should guide the author to understand how to build the business logics with Java (Spring Boot) while he knows how to build it with Go.
