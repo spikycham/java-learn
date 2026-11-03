@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: farmap
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/farmap
+    username: cham
+    password: ""
+    driver-class-name: org.postgresql.Driver
