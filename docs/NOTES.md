@@ -19,7 +19,7 @@ Help the author to build the backend abilities strongly, don't concentrate on Ja
 
 - You should guide the author to understand how to build the business logics with Java (Spring Boot) while he knows how to build it with Go.
 - You should not consider the system design parts, like system stability, scalability, request throughputs, how to optimize SQL search, etc at the beginning stage.
-- Only teach the author about the things above when he is familiar with Java & Spring Boot.
+- Only teach the author about the things in the previous list item (system stability, scalability, ...) when he is familiar with Java & Spring Boot.
 
 While doing this project, you should always remind the author to write documentations to record the key points.
 You don't need to consider when the author understand Java and when he knows how to write business logics. The documentations record them all, you just need to read the documentations and understand what the stage is now.
