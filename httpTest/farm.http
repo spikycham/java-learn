@@ -6,9 +6,9 @@ Accept: application/json
 
 {
     "user_id": "00000001",
-    "name": "Farm Test A",
+    "name": "Farm Test B",
     "location": "New York City Center",
-    "color_string": "#fff000"
+    "color_string": "#918fff"
 }
 
 ### Get farm list.
@@ -19,10 +19,11 @@ Accept: application/json
 ### Update farm properties.
 PATCH /api/farm HTTP/2.0
 Host: 127.0.0.1:8080
+Content-Type: application/json
 Accept: application/json
 
 {
-    "farm_id": "0000001",
+    "farm_id": "afc39ed6",
     "name": "Upated Farm A",
     "location": "Updated New York City",
     "color_string": "#000fff"

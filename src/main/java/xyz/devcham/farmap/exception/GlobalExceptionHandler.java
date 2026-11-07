@@ -12,7 +12,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Void> handleException(Exception e) {
-        log.error("Internal server error", e);
+        log.error("***", e);
         return ResponseEntity.internalServerError().build();
     }
 }

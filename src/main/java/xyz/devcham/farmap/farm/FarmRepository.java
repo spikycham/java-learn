@@ -23,7 +23,7 @@ public class FarmRepository {
                 farm.getUserId(),
                 farm.getName(),
                 farm.getLocation(),
-                farm.getCreatedAt(),
+                java.sql.Timestamp.from(farm.getCreatedAt()),
                 farm.getColorString());
     }
 
