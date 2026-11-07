@@ -1,0 +1,29 @@
+### Create a farm.
+POST /api/farm HTTP/2.0
+Host: 127.0.0.1:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+    "user_id": "00000001",
+    "name": "Farm Test A",
+    "location": "New York City Center",
+    "color_string": "#fff000"
+}
+
+### Get farm list.
+GET /api/farm/list/00000001 HTTP/2.0
+Host: 127.0.0.1:8080
+Accept: application/json
+
+### Update farm properties.
+PATCH /api/farm HTTP/2.0
+Host: 127.0.0.1:8080
+Accept: application/json
+
+{
+    "farm_id": "0000001",
+    "name": "Upated Farm A",
+    "location": "Updated New York City",
+    "color_string": "#000fff"
+}
