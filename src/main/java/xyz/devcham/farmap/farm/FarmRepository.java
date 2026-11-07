@@ -29,7 +29,7 @@ public class FarmRepository {
 
     public List<Farm> getAllByUserId(String userId) {
         return jdbc.query(
-                "SELECT id, user_id, name, location, created_at, color_string, area FROM farms WHERE user_id = ?",
+                "SELECT id, user_id, name, location, created_at, color_string, area FROM farms WHERE user_id = ? ORDER BY created_at ASC",
                 (rs, rowNum) -> new Farm(
                         rs.getString("id"),
                         rs.getString("user_id"),
