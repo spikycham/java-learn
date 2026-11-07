@@ -1,4 +1,4 @@
-# ADR 0001: Constraint the Updated Fields at Service Layer
+# ADR 0001: Constraint the Updatable Fields at Service
 
 ## Status
 
@@ -32,3 +32,8 @@ Negative:
 - Constraint at repo layer: rejected, mixes business logic into SQL layer
 - Constraint at controller: rejected, controllers should be thin, logic may be called by other services later
 - DB-level constraint (CHECK/trigger): rejected, complex field whitelists = ugly SQL, harder to change
+
+## Additional
+
+But the JSON schema should be validated at controller layer,
+and the service layer always trusts the controller.

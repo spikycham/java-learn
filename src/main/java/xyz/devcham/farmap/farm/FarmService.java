@@ -19,7 +19,7 @@ public class FarmService {
         this.repo = repo;
     }
 
-    public void createFarm(RequestCreateFarm req) {
+    public Farm createFarm(RequestCreateFarm req) {
         Farm farm = new Farm(
                 Random.generateId(8),
                 req.userId(),
@@ -29,9 +29,10 @@ public class FarmService {
                 req.colorString(),
                 0.0F);
         repo.insertFarm(farm);
+        return farm;
     }
 
-    public List<Farm> listFarms(String userId) {
+    public List<Farm> readFarmList(String userId) {
         return repo.getAllByUserId(userId);
     }
 
