@@ -18,14 +18,13 @@ public class FarmRepository {
 
     public void insertFarm(Farm farm) {
         jdbc.update(
-                "INSERT INTO farms (id, user_id, name, location, created_at, color_string, area) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                "INSERT INTO farms (id, user_id, name, location, created_at, color_string) VALUES (?, ?, ?, ?, ?, ?)",
                 farm.getId(),
                 farm.getUserId(),
                 farm.getName(),
                 farm.getLocation(),
                 farm.getCreatedAt(),
-                farm.getColorString(),
-                farm.getArea());
+                farm.getColorString());
     }
 
     public List<Farm> getAllByUserId(String userId) {
