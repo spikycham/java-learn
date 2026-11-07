@@ -1,0 +1,12 @@
+spring:
+    application:
+        name: farmap
+
+    jackson:
+        property-naming-strategy: SNAKE_CASE
+
+    datasource:
+        url: jdbc:postgresql://localhost:5432/farmap
+        username: cham
+        password: ""
+        driver-class-name: org.postgresql.Driver
