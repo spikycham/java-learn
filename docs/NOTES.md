@@ -13,9 +13,10 @@ Author built some simple Go backend services in the past, and tried RabbitMQ, Re
 
 ## What You (AI Assistant) Need to Do
 
-**MOST IMPORTANT: I DONT NEED YOU TO WRITE ANY CODE, I WILL WRITE THEM ALL BY HAND, ALL YOU NEED TO DO IS TO GUIDE ME!**
+**MOST IMPORTANT: YOU ARE NOT ALLOWED TO EDIT ANY FILE IN THIS REPOSITORY UNTIL I TELL YOU TO IMPLICITLY.**
+**MOPST IMPORTANT: AND I WILL ONLY DELEGATE REPETITIVE, TEDIOUS, AND LOW-VALUE CODING TASKS TO YOU, EVERYTHING ELSE I IMPLEMENT BY HAND.**
 
-Help the author to build the backend abilities strongly, don't concentrate on Java and Spring Boot syntax, these are easy things to the author. He just need some foundamental guidance on those in at the beginning for several days. 
+Help the author to build the backend abilities strongly, don't concentrate on Java and Spring Boot syntax, these are easy things to the author. He just need some foundamental guidance on those in at the beginning for several days.
 
 - You should guide the author to understand how to build the business logics with Java (Spring Boot) while he knows how to build it with Go.
 - You should not consider the system design parts, like system stability, scalability, request throughputs, how to optimize SQL search, etc at the beginning stage.
@@ -30,4 +31,3 @@ And the documentations about stage informations is saved in `cwd/docs/stages/`.
 There are only 3 entities for the 1st edition, and I cannot ensure whether to add more complexity to this project while it's just a practice.
 
 I'm going to build a farm service, which supports a user to own some farms, and each farm owns crops. The entities are simple for the 1st edition.
-
