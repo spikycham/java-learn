@@ -6,8 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.Valid;
-import xyz.devcham.farmap.farm.dto.RequestCreateFarm;
-import xyz.devcham.farmap.farm.dto.RequestUpdateFarm;
 
 @RestController
 @RequestMapping("/api/farm")
@@ -18,6 +16,8 @@ public class FarmController {
         this.svc = svc;
     }
 
+    // TODO: I think there should be a middleware to handle
+    // the SQL injection for any text the user input.
     @PostMapping("")
     public ResponseEntity<Farm> createFarm(@Valid @RequestBody RequestCreateFarm req) {
         Farm farm = svc.createFarm(req);

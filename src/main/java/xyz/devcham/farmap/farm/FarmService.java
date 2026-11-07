@@ -7,8 +7,6 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import xyz.devcham.farmap.farm.dto.RequestCreateFarm;
-import xyz.devcham.farmap.farm.dto.RequestUpdateFarm;
 import xyz.devcham.farmap.utils.Random;
 
 @Service

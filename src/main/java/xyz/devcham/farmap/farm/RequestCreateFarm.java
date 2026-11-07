@@ -1,4 +1,4 @@
-package xyz.devcham.farmap.farm.dto;
+package xyz.devcham.farmap.farm;
 
 import org.hibernate.validator.constraints.Length;
 

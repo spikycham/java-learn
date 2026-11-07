@@ -6,9 +6,9 @@ Accept: application/json
 
 {
     "user_id": "00000001",
-    "name": "Farm Test B",
+    "name": "Farm Test C",
     "location": "New York City Center",
-    "color_string": "#918fff"
+    "color_string": "#418971"
 }
 
 ### Get farm list.
@@ -23,10 +23,8 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "farm_id": "afc39ed6",
-    "name": "Upated Farm A",
-    "location": "Updated New York City",
-    "color_string": "#000fff"
+    "farm_id": "cf64c980",
+    "location": "New Zeland"
 }
 
 ### Delete a farm.
