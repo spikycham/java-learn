@@ -26,7 +26,6 @@ public class FarmController {
 
     @GetMapping("/list/{user_id}")
     public ResponseEntity<List<Farm>> getFarmList(@PathVariable("user_id") String userId) {
-        System.out.println(userId);
         if (userId.length() != 8 || !userId.matches("^[0-9a-f]{8}$"))
             return ResponseEntity.status(400).build();
 
@@ -42,6 +41,9 @@ public class FarmController {
 
     @DeleteMapping("/{farm_id}")
     public ResponseEntity<Void> deleteFarm(@PathVariable("farm_id") String farmId) {
+        if (farmId.length() != 8 || !farmId.matches("^[0-9a-f]{8}$"))
+            return ResponseEntity.status(400).build();
+
         svc.deleteFarm(farmId);
         return ResponseEntity.noContent().build();
     }

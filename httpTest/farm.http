@@ -28,3 +28,7 @@ Accept: application/json
     "location": "Updated New York City",
     "color_string": "#000fff"
 }
+
+### Delete a farm.
+DELETE /api/farm/1e2fd1d6 HTTP/2.0
+Host: 127.0.0.1:8080
