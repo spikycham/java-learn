@@ -4,8 +4,11 @@ import java.sql.SQLException;
 import java.time.Instant;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import xyz.devcham.farmap.utils.Random;
 
+@Service
 public class CropService {
     private final CropRepository repo;
 

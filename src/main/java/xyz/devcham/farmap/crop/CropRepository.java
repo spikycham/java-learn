@@ -3,16 +3,16 @@ package xyz.devcham.farmap.crop;
 import java.sql.Array;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class CropRepository {
     private final JdbcTemplate db;
     private final DataSource ds;
