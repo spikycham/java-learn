@@ -24,7 +24,8 @@ public class FarmPointController {
     }
 
     @PostMapping("")
-    public ResponseEntity<List<FarmPoint>> postFarmPoints(@Valid @RequestBody RequestUpdateFarmPoints req) {
+    public ResponseEntity<List<ResponseUpdateFarmPoints>> postFarmPoints(
+            @Valid @RequestBody RequestUpdateFarmPoints req) {
         if (req.points().size() == 0)
             return ResponseEntity.badRequest().build();
         System.out.println(req);

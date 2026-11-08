@@ -15,7 +15,7 @@ public class FarmPointService {
         this.repo = repo;
     }
 
-    public List<FarmPoint> createFarmPoints(RequestUpdateFarmPoints req) {
+    public List<ResponseUpdateFarmPoints> createFarmPoints(RequestUpdateFarmPoints req) {
         List<FarmPoint> points = req.points().stream().map(p -> new FarmPoint(
                 Random.generateId(8),
                 req.farmId(),
@@ -24,7 +24,7 @@ public class FarmPointService {
                 p.pointOrder())).toList();
         repo.insertFarmPoints(points);
         // TODO: update the related farm area.
-        return points;
+        return points.stream().map(p -> new ResponseUpdateFarmPoints(p.getId(), p.getPointOrder())).toList();
     }
 
     public List<FarmPoint> readFarmPoints(String farmId) {
@@ -33,9 +33,9 @@ public class FarmPointService {
 
     // PERF: clarify update coordinates or reorder the points.
     @Transactional
-    public List<FarmPoint> updateFarmPoints(RequestUpdateFarmPoints req) {
+    public void updateFarmPoints(RequestUpdateFarmPoints req) {
         // TODO: update the related farm area.
         repo.deleteAllByFarmId(req.farmId());
-        return createFarmPoints(req);
+        createFarmPoints(req);
     }
 }
