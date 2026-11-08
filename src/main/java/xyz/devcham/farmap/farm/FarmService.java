@@ -53,5 +53,6 @@ public class FarmService {
 
     public void deleteFarm(String farmId) {
         repo.deleteFarmByFarmId(farmId);
+        // TODO: delete related farm points.
     }
 }
