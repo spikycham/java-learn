@@ -23,21 +23,21 @@ public class CropRepository {
     }
 
     public void insertCrops(List<Crop> crops) throws SQLException {
-        String insertClause = crops.stream().map(c -> "(?, ?, ?, ?, ?, ?, ?, ?)").collect(Collectors.joining(", "));
+        String insertClause = crops.stream().map(c -> "(?, ?, ?, ?, ?, ?, ?)").collect(Collectors.joining(", "));
         String sql = "INSERT INTO crops (id, farm_id, latitude, longitude, disease_details, yield_count, height) VALUES "
                 + insertClause;
 
         Connection conn = ds.getConnection();
-        Object[] args = new Object[crops.size() * 6];
+        Object[] args = new Object[crops.size() * 7];
         for (int i = 0; i < crops.size(); i++) {
             Crop c = crops.get(i);
-            args[i * 6 + 0] = c.getId();
-            args[i * 6 + 1] = c.getFarmId();
-            args[i * 6 + 3] = c.getLatitude();
-            args[i * 6 + 4] = c.getLongitude();
-            args[i * 6 + 5] = conn.createArrayOf("text", c.getDiseaseDetails());
-            args[i * 6 + 6] = c.getYieldCount();
-            args[i * 6 + 7] = c.getHeight();
+            args[i * 7 + 0] = c.getId();
+            args[i * 7 + 1] = c.getFarmId();
+            args[i * 7 + 2] = c.getLatitude();
+            args[i * 7 + 3] = c.getLongitude();
+            args[i * 7 + 4] = conn.createArrayOf("text", c.getDiseaseDetails());
+            args[i * 7 + 5] = c.getYieldCount();
+            args[i * 7 + 6] = c.getHeight();
         }
 
         db.update(sql, args);
@@ -65,7 +65,7 @@ public class CropRepository {
 
     public void deleteCropsByFarmIdAndDate(String farmId, Instant date) {
         db.update(
-                "DELETE FROM crops WHERE farm_id = ? AND created_at >= ? AND created_at < ::timestamptz + interval '1 day'",
+                "DELETE FROM crops WHERE farm_id = ? AND created_at >= ? AND created_at < ?::timestamptz + interval '1 day'",
                 farmId, date, date);
     }
 }
