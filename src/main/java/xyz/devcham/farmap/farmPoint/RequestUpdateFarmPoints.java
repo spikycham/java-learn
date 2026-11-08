@@ -6,6 +6,6 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
 public record RequestUpdateFarmPoints(
-        @NotNull String farmId,
-        List<@Valid RequestFarmPoint> points) {
+                @NotNull String farmId,
+                @NotNull List<@Valid RequestFarmPoint> points) {
 }

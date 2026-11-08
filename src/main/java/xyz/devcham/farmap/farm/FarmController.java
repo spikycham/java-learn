@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.Valid;
+import xyz.devcham.farmap.utils.Regexp;
 
 @RestController
 @RequestMapping("/api/farm")
@@ -26,8 +27,8 @@ public class FarmController {
 
     @GetMapping("/list/{user_id}")
     public ResponseEntity<List<Farm>> getFarmList(@PathVariable("user_id") String userId) {
-        if (userId.length() != 8 || !userId.matches("^[0-9a-f]{8}$"))
-            return ResponseEntity.status(400).build();
+        if (userId.length() != 8 || !userId.matches(Regexp.id))
+            return ResponseEntity.badRequest().build();
 
         List<Farm> farms = svc.readFarmList(userId);
         return ResponseEntity.ok(farms);
