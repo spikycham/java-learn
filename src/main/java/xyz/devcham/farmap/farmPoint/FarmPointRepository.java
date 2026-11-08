@@ -25,7 +25,8 @@ public class FarmPointRepository {
                                                 p -> Stream.of(
                                                                 p.getId(),
                                                                 p.getFarmId(),
-                                                                p.getLatitude(), p.getLongitude(),
+                                                                p.getLatitude(),
+                                                                p.getLongitude(),
                                                                 p.getPointOrder()))
                                                 .toArray());
         }

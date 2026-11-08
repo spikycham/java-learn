@@ -58,6 +58,9 @@ public class FarmRepository {
                 Stream.concat(fields.values().stream(), Stream.of(farmId)).toArray());
     }
 
+    // TODO: set a last_upload_at field to know the latest date of uploaindg a group
+    // of crops.
+
     public void deleteFarmByFarmId(String farmId) {
         db.update(
                 "DELETE FROM farms WHERE id = ?",
