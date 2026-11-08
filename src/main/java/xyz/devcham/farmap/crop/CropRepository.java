@@ -3,6 +3,7 @@ package xyz.devcham.farmap.crop;
 import java.sql.Array;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -45,7 +46,7 @@ public class CropRepository {
 
     public List<Crop> selectAllByFarmIdAndDate(String farmId, Instant date) {
         return db.query(
-                "SELECT id, farm_id, latitude, longitude, disease_details, yield_count, height FROM crops WHERE farm_id = ? AND created_at >= ? AND created_at < ?::timestamptz + interval '1 day'",
+                "SELECT id, farm_id, latitude, longitude, disease_details, yield_count, height, created_at FROM crops WHERE farm_id = ? AND created_at >= ? AND created_at < ?::timestamptz + interval '1 day'",
                 (rs, rowNum) -> {
                     Array arr = rs.getArray("disease_details");
                     String[] diseaseDetails = (String[]) arr.getArray();
@@ -60,12 +61,12 @@ public class CropRepository {
                             rs.getFloat("height"),
                             rs.getTimestamp("created_at").toInstant());
                 },
-                farmId, date, date);
+                farmId, Timestamp.from(date), Timestamp.from(date));
     }
 
     public void deleteCropsByFarmIdAndDate(String farmId, Instant date) {
         db.update(
                 "DELETE FROM crops WHERE farm_id = ? AND created_at >= ? AND created_at < ?::timestamptz + interval '1 day'",
-                farmId, date, date);
+                farmId, Timestamp.from(date), Timestamp.from(date));
     }
 }
