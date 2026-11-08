@@ -25,7 +25,8 @@ public class FarmService {
                 req.location(),
                 Instant.now(),
                 req.colorString(),
-                0.0F);
+                0.0F,
+                FarmType.fromValue(req.farmType()));
         repo.insertFarm(farm);
         return farm;
     }
@@ -35,7 +36,7 @@ public class FarmService {
     }
 
     public void updateFarm(RequestUpdateFarm req) {
-        Map<String, String> fields = new HashMap<>();
+        Map<String, Object> fields = new HashMap<>();
 
         if (req.name() != null)
             fields.put("name", req.name());
@@ -43,6 +44,8 @@ public class FarmService {
             fields.put("location", req.location());
         if (req.colorString() != null)
             fields.put("color_string", req.colorString());
+        if (req.farmType() != null)
+            fields.put("farm_type", req.farmType());
 
         if (fields.isEmpty())
             return;

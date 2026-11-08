@@ -6,9 +6,10 @@ Accept: application/json
 
 {
     "user_id": "00000001",
-    "name": "Farm Test C",
-    "location": "New York City Center",
-    "color_string": "#418971"
+    "name": "Farm Test D",
+    "location": "Test the Farm Type",
+    "color_string": "#418971",
+    "farm_type": 2
 }
 
 ### Get farm list.
@@ -23,10 +24,10 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "farm_id": "cf64c980",
-    "location": "New Zeland"
+    "farm_id": "e9154053",
+    "farm_type": 3
 }
 
 ### Delete a farm.
-DELETE /api/farm/1e2fd1d6 HTTP/2.0
+DELETE /api/farm/5780ad30 HTTP/2.0
 Host: 127.0.0.1:8080

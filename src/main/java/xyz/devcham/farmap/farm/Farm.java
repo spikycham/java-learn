@@ -2,26 +2,26 @@ package xyz.devcham.farmap.farm;
 
 import java.time.Instant;
 
-// TODO: crop_type should be a filed of farm actually?
-// It's farm_type?
 public class Farm {
     private String id;
     private String userId;
     private String name;
     private String location;
     private Instant createdAt;
-    private String color_string;
+    private String colorString;
     private Float area;
+    private FarmType farmType;
 
-    public Farm(String id, String userId, String name, String location, Instant createdAt, String color_string,
-            Float area) {
+    public Farm(String id, String userId, String name, String location, Instant createdAt, String colorString,
+            Float area, FarmType farmType) {
         this.id = id;
         this.userId = userId;
         this.name = name;
         this.location = location;
         this.createdAt = createdAt;
-        this.color_string = color_string;
+        this.colorString = colorString;
         this.area = area;
+        this.farmType = farmType;
     }
 
     public String getId() {
@@ -45,10 +45,14 @@ public class Farm {
     }
 
     public String getColorString() {
-        return color_string;
+        return colorString;
     }
 
     public Float getArea() {
         return area;
+    }
+
+    public FarmType getFarmType() {
+        return farmType;
     }
 }

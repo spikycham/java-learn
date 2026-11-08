@@ -5,20 +5,18 @@ import java.time.Instant;
 public class Crop {
     private String id;
     private String farmId;
-    private CropType cropType;
     private double latitude;
-    private double longitude
+    private double longitude;
     private String[] diseaseDetails;
     private int yieldCount;
     private float height;
     private Instant createdAt;
 
-    public Crop(String id, String farmId, CropType cropType, double latitude, double longitude, String[] diseaseDetails,
+    public Crop(String id, String farmId, double latitude, double longitude, String[] diseaseDetails,
             int yieldCount, float height,
             Instant createdAt) {
         this.id = id;
         this.farmId = farmId;
-        this.cropType = cropType;
         this.latitude = latitude;
         this.longitude = longitude;
         this.diseaseDetails = diseaseDetails;
@@ -33,10 +31,6 @@ public class Crop {
 
     public String getFarmId() {
         return farmId;
-    }
-
-    public CropType getCropType() {
-        return cropType;
     }
 
     public double getLatitude() {

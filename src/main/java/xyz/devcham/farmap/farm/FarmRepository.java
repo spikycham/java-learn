@@ -18,18 +18,19 @@ public class FarmRepository {
 
     public void insertFarm(Farm farm) {
         db.update(
-                "INSERT INTO farms (id, user_id, name, location, created_at, color_string) VALUES (?, ?, ?, ?, ?, ?)",
+                "INSERT INTO farms (id, user_id, name, location, created_at, color_string, farm_type) VALUES (?, ?, ?, ?, ?, ?, ?)",
                 farm.getId(),
                 farm.getUserId(),
                 farm.getName(),
                 farm.getLocation(),
                 java.sql.Timestamp.from(farm.getCreatedAt()),
-                farm.getColorString());
+                farm.getColorString(),
+                farm.getFarmType().getValue());
     }
 
     public List<Farm> selectAllByUserId(String userId) {
         return db.query(
-                "SELECT id, user_id, name, location, created_at, color_string, area FROM farms WHERE user_id = ? ORDER BY created_at ASC",
+                "SELECT id, user_id, name, location, created_at, color_string, area, farm_type FROM farms WHERE user_id = ? ORDER BY created_at ASC",
                 (rs, rowNum) -> new Farm(
                         rs.getString("id"),
                         rs.getString("user_id"),
@@ -37,14 +38,15 @@ public class FarmRepository {
                         rs.getString("location"),
                         rs.getTimestamp("created_at").toInstant(),
                         rs.getString("color_string"),
-                        rs.getFloat("area")),
+                        rs.getFloat("area"),
+                        FarmType.fromValue(rs.getInt("farm_type"))),
                 userId);
     }
 
     // public FarmDetail getFarmDetailByFarmId(String farmId) {}
 
     // Desicion#0001
-    public void updateFarmByFarmId(String farmId, Map<String, String> fields) {
+    public void updateFarmByFarmId(String farmId, Map<String, Object> fields) {
         if (fields.isEmpty())
             return;
 

@@ -20,7 +20,6 @@ public class CropService {
         repo.insertCrops(req.crops().stream().map(c -> new Crop(
                 Random.generateId(8),
                 req.farmId(),
-                CropType.fromValue(c.cropType()),
                 c.latitude(),
                 c.longitude(),
                 c.diseaseDetails(),

@@ -26,21 +26,24 @@ public class CropController {
     }
 
     @PostMapping("")
-    public void postCrops(@Valid @RequestBody RequestCreateCrops req) throws SQLException {
+    public ResponseEntity<Void> postCrops(@Valid @RequestBody RequestCreateCrops req) throws SQLException {
+        if (req.crops().size() == 0)
+            return ResponseEntity.badRequest().build();
         svc.createCrops(req);
+        return ResponseEntity.created(null).build();
     }
 
     @GetMapping("/{farm_id}/{date}")
     public ResponseEntity<List<Crop>> getCrops(@PathVariable("farm_id") String farmId,
             @PathVariable("date") long date) {
-        if (farmId.length() != 8 || !farmId.matches(Regexp.id))
+        if (farmId.length() != 8 || !farmId.matches(Regexp.ID))
             return ResponseEntity.badRequest().build();
         return ResponseEntity.ok(svc.readCrops(farmId, Instant.ofEpochSecond(date)));
     }
 
     @DeleteMapping("/{farm_id}/{date}")
     public ResponseEntity<Void> deleteCrops(@PathVariable("farm_id") String farmId, @PathVariable("date") long date) {
-        if (farmId.length() != 8 || !farmId.matches(Regexp.id))
+        if (farmId.length() != 8 || !farmId.matches(Regexp.ID))
             return ResponseEntity.badRequest().build();
         svc.deleteCrops(farmId, Instant.ofEpochSecond(date));
         return ResponseEntity.noContent().build();

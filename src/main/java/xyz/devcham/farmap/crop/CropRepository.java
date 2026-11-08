@@ -24,7 +24,7 @@ public class CropRepository {
 
     public void insertCrops(List<Crop> crops) throws SQLException {
         String insertClause = crops.stream().map(c -> "(?, ?, ?, ?, ?, ?, ?, ?)").collect(Collectors.joining(", "));
-        String sql = "INSERT INTO crops (id, farm_id, crop_type, latitude, longitude, disease_details, yield_count, height) VALUES "
+        String sql = "INSERT INTO crops (id, farm_id, latitude, longitude, disease_details, yield_count, height) VALUES "
                 + insertClause;
 
         Connection conn = ds.getConnection();
@@ -33,7 +33,6 @@ public class CropRepository {
             Crop c = crops.get(i);
             args[i * 6 + 0] = c.getId();
             args[i * 6 + 1] = c.getFarmId();
-            args[i * 6 + 2] = c.getCropType().ordinal();
             args[i * 6 + 3] = c.getLatitude();
             args[i * 6 + 4] = c.getLongitude();
             args[i * 6 + 5] = conn.createArrayOf("text", c.getDiseaseDetails());
@@ -46,7 +45,7 @@ public class CropRepository {
 
     public List<Crop> selectAllByFarmIdAndDate(String farmId, Instant date) {
         return db.query(
-                "SELECT id, farm_id, crop_type, latitude, longitude, disease_details, yield_count, height FROM crops WHERE farm_id = ? AND created_at >= ? AND created_at < ?::timestamptz + interval '1 day'",
+                "SELECT id, farm_id, latitude, longitude, disease_details, yield_count, height FROM crops WHERE farm_id = ? AND created_at >= ? AND created_at < ?::timestamptz + interval '1 day'",
                 (rs, rowNum) -> {
                     Array arr = rs.getArray("disease_details");
                     String[] diseaseDetails = (String[]) arr.getArray();
@@ -54,7 +53,6 @@ public class CropRepository {
                     return new Crop(
                             rs.getString("id"),
                             rs.getString("farm_id"),
-                            CropType.fromValue(rs.getInt("crop_type")),
                             rs.getDouble("latitude"),
                             rs.getDouble("longitude"),
                             diseaseDetails,

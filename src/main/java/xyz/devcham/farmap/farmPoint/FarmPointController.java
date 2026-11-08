@@ -34,7 +34,7 @@ public class FarmPointController {
 
     @GetMapping("/{farm_id}")
     public ResponseEntity<List<FarmPoint>> getFarmPoints(@PathVariable("farm_id") String farmId) {
-        if (farmId.length() != 8 || !farmId.matches(Regexp.id))
+        if (farmId.length() != 8 || !farmId.matches(Regexp.ID))
             return ResponseEntity.badRequest().build();
         return ResponseEntity.ok(
                 svc.readFarmPoints(farmId));
