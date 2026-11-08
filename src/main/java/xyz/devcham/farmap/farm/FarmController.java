@@ -19,7 +19,7 @@ public class FarmController {
     // TODO: I think there should be a middleware to handle
     // the SQL injection for any text the user input.
     @PostMapping("")
-    public ResponseEntity<Farm> createFarm(@Valid @RequestBody RequestCreateFarm req) {
+    public ResponseEntity<Farm> postFarm(@Valid @RequestBody RequestCreateFarm req) {
         Farm farm = svc.createFarm(req);
         return ResponseEntity.created(null).body(farm);
     }
@@ -34,7 +34,7 @@ public class FarmController {
     }
 
     @PatchMapping("")
-    public ResponseEntity<Void> updateFarm(@Valid @RequestBody RequestUpdateFarm req) {
+    public ResponseEntity<Void> patchFarm(@Valid @RequestBody RequestUpdateFarm req) {
         svc.updateFarm(req);
         return ResponseEntity.ok().build();
     }
