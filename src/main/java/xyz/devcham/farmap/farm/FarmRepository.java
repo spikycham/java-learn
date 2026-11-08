@@ -10,14 +10,14 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class FarmRepository {
-    private final JdbcTemplate jdbc;
+    private final JdbcTemplate db;
 
-    public FarmRepository(JdbcTemplate jdbc) {
-        this.jdbc = jdbc;
+    public FarmRepository(JdbcTemplate db) {
+        this.db = db;
     }
 
     public void insertFarm(Farm farm) {
-        jdbc.update(
+        db.update(
                 "INSERT INTO farms (id, user_id, name, location, created_at, color_string) VALUES (?, ?, ?, ?, ?, ?)",
                 farm.getId(),
                 farm.getUserId(),
@@ -27,8 +27,8 @@ public class FarmRepository {
                 farm.getColorString());
     }
 
-    public List<Farm> getAllByUserId(String userId) {
-        return jdbc.query(
+    public List<Farm> selectAllByUserId(String userId) {
+        return db.query(
                 "SELECT id, user_id, name, location, created_at, color_string, area FROM farms WHERE user_id = ? ORDER BY created_at ASC",
                 (rs, rowNum) -> new Farm(
                         rs.getString("id"),
@@ -53,13 +53,13 @@ public class FarmRepository {
                 .collect(Collectors.joining(", "));
         String sql = "UPDATE farms SET " + setClause + " WHERE id = ?";
 
-        jdbc.update(
+        db.update(
                 sql,
                 Stream.concat(fields.values().stream(), Stream.of(farmId)).toArray());
     }
 
     public void deleteFarmByFarmId(String farmId) {
-        jdbc.update(
+        db.update(
                 "DELETE FROM farms WHERE id = ?",
                 farmId);
     }

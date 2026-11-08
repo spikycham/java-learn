@@ -31,7 +31,7 @@ public class FarmService {
     }
 
     public List<Farm> readFarmList(String userId) {
-        return repo.getAllByUserId(userId);
+        return repo.selectAllByUserId(userId);
     }
 
     public void updateFarm(RequestUpdateFarm req) {
