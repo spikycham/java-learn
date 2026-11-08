@@ -21,6 +21,8 @@ public class CropService {
                 Random.generateId(8),
                 req.farmId(),
                 CropType.fromValue(c.cropType()),
+                c.latitude(),
+                c.longitude(),
                 c.diseaseDetails(),
                 c.yieldCount(),
                 c.height(),

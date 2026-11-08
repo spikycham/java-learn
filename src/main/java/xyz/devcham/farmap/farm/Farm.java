@@ -2,6 +2,8 @@ package xyz.devcham.farmap.farm;
 
 import java.time.Instant;
 
+// TODO: crop_type should be a filed of farm actually?
+// It's farm_type?
 public class Farm {
     private String id;
     private String userId;

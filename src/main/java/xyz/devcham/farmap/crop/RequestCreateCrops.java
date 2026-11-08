@@ -6,7 +6,6 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
 public record RequestCreateCrops(
-        @NotNull String farmId,
-        @NotNull List<@Valid RequestCrop> crops) {
-
+                @NotNull String farmId,
+                @NotNull List<@Valid RequestCrop> crops) {
 }
