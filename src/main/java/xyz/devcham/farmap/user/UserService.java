@@ -26,6 +26,7 @@ public class UserService {
 
     public ResponseUser login(RequestLogin req) {
         User user = repo.getUserByEmailAndPassword(req.email(), req.password());
+        // TODO: need to create a session id and insert into redis with expiration time.
         if (user == null)
             return null;
         return new ResponseUser(user.getId(), user.getUsername(), user.getEmail());
