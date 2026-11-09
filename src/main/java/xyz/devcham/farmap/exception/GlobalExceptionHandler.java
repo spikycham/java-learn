@@ -24,7 +24,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Void> handleException(Exception e) {
-        log.error("***", e);
+        log.error(e.toString());
         return ResponseEntity.internalServerError().build();
     }
 }
