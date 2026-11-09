@@ -12,13 +12,29 @@ public class UserService {
         this.repo = repo;
     }
 
-    public User createUser(RequestCreateUser req) {
+    public ResponseUser createUser(RequestCreateUser req) {
         User user = new User(
                 Random.generateId(8),
                 req.email(),
                 req.password(),
                 req.username());
         repo.insertUser(user);
-        return user;
+
+        ResponseUser ru = new ResponseUser(user.getId(), user.getUsername(), user.getEmail());
+        return ru;
+    }
+
+    public ResponseUser login(RequestLogin req) {
+        User user = repo.getUserByEmailAndPassword(req.email(), req.password());
+        if (user == null)
+            return null;
+        return new ResponseUser(user.getId(), user.getUsername(), user.getEmail());
+    }
+
+    public ResponseUser readMe(String userId) {
+        User user = repo.getUserById(userId);
+        if (user == null)
+            return null;
+        return new ResponseUser(user.getId(), user.getUsername(), user.getEmail());
     }
 }
