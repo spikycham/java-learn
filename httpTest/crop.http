@@ -1,0 +1,49 @@
+### Create a group of crops.
+POST /api/crop HTTP/2.0
+Host: 127.0.0.1:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+    "farm_id": "afc39ed6",
+    "crops": [
+        {
+            "latitude": 1,
+            "longitude": 1,
+            "disease_details": [],
+            "yield_count": 1,
+            "height": 1
+        },
+        {
+            "latitude": 2,
+            "longitude": 2,
+            "disease_details": ["2"],
+            "yield_count": 2,
+            "height": 2
+        },
+        {
+            "latitude": 3,
+            "longitude": 3,
+            "disease_details": ["3.0", "3.1"],
+            "yield_count": 3,
+            "height": 3
+        },
+        {
+            "latitude": 4,
+            "longitude": 4,
+            "disease_details": ["4.0", "4.1", "4.2"],
+            "yield_count": 4,
+            "height": 4
+        }
+    ]
+}
+
+### Get the crops of a farm in a period of date.
+GET /api/crop/afc39ed6/1794096000 HTTP/2.0
+Host: 127.0.0.1:8080
+Accept: application/json
+
+### Delete all the crops of a farm in a period of date.
+DELETE /api/crop/afc39ed6/1794096000 HTTP/2.0
+Host: 127.0.0.1:8080
+Accept: application/json

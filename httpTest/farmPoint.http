@@ -1,0 +1,74 @@
+### Create some points to a farm.
+POST /api/farm/point HTTP/2.0
+Host: 127.0.0.1:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+    "farm_id": "afc39ed6",
+    "points": [
+        {
+            "latitude": 1,
+            "longitude": 1,
+            "point_order": 0
+        },
+        {
+            "latitude": 2,
+            "longitude": 2,
+            "point_order": 1
+        },
+        {
+            "latitude": 3,
+            "longitude": 3,
+            "point_order": 2
+        },
+        {
+            "latitude": 4,
+            "longitude": 4,
+            "point_order": 3
+        }
+    ]
+}
+
+### Get all the points of a farm.
+GET /api/farm/point/afc39ed6 HTTP/2.0
+Host: 127.0.0.1:8080
+Accept: application/json
+
+### Update all points of a farm.
+
+PUT /api/farm/point HTTP/2.0
+Host: 127.0.0.1:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+    "farm_id": "afc39ed6",
+    "points": [
+        {
+            "latitude": 1.1,
+            "longitude": 1.1,
+            "point_order": 0
+        },
+        {
+            "latitude": 2.1,
+            "longitude": 2.1,
+            "point_order": 1
+        },
+        {
+            "latitude": 3.1,
+            "longitude": 3.1,
+            "point_order": 2
+        },
+        {
+            "latitude": 5.1,
+            "longitude": 5.1,
+            "point_order": 3
+        },
+        {
+            "latitude": 4.1,
+            "longitude": 4.1,
+            "point_order": 4
+        }
+    ]
+}

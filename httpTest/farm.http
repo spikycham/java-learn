@@ -1,0 +1,33 @@
+### Create a farm.
+POST /api/farm HTTP/2.0
+Host: 127.0.0.1:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+    "user_id": "00000001",
+    "name": "Farm Test D",
+    "location": "Test the Farm Type",
+    "color_string": "#418971",
+    "farm_type": 2
+}
+
+### Get farm list.
+GET /api/farm/list/00000001 HTTP/2.0
+Host: 127.0.0.1:8080
+Accept: application/json
+
+### Update farm properties.
+PATCH /api/farm HTTP/2.0
+Host: 127.0.0.1:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+    "farm_id": "e9154053",
+    "farm_type": 3
+}
+
+### Delete a farm.
+DELETE /api/farm/5780ad30 HTTP/2.0
+Host: 127.0.0.1:8080

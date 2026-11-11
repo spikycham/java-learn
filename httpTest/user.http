@@ -1,0 +1,27 @@
+### Create a user.
+POST /api/user HTTP/2.0
+Host: 127.0.0.1:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "candy@example.com",
+    "password": "111111",
+    "username": "Candy"
+}
+
+### Login.
+POST /api/user/session HTTP/2.0
+Host: 127.0.0.1:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "candy@example.com",
+    "password": "111111"
+}
+
+### Get the user info of me.
+GET /api/user/me/d6ab04b8 HTTP/2.0
+Host: 127.0.0.1:8080
+Accept: application/json
