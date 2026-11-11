@@ -66,5 +66,4 @@ public class UserService {
             return null;
         return new ResponseUser(user.getId(), user.getUsername(), user.getEmail());
     }
-
 }
